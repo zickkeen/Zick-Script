@@ -1,0 +1,25 @@
+DISABLE CONTROL PANEL
+------------------------------------------
+
+1. In Registry Editor navigate to 
+-----HKEY_CURRENT_USER\
+	Software\
+		Microsoft\
+			Windows\
+				Current Version\
+					Policies\
+						Explorer. (lalu klik kanan)
+create a new = DWORD (32-bit) Value.
+
+2. ganti namanya dengan  " NoControlPanel ". lalu klik kanan pilih " Modify "
+
+3.  Value  di ganti “1” lalu click OK. 
+
+keluar dari Registry Editor and restart POS.
+
+4. jika ingin mengembalikan Control Panel, kembali ke langkah yang di atas lalu NoControlPanel value ganti “0” dan restart pos
+
+
+
+
+NoControlPanel

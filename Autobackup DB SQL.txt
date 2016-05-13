@@ -1,0 +1,38 @@
+==================================================================================================================================================================
+--buat pasword dulu di POS servernya (pos server aja yg lain enggak) <<< kalo server PC sudah ada password tidak perlu di buat
+==================================================================================================================================================================
+1. Buat password di Control Panel\All Control Panel Items\User Accounts 
+2. create password for you accounts (defauld password: xxxxx) <<< seragam aja biar gak lupa untuk POS yg jadi server
+
+===================================================================================================================================================================
+--buat auto login windows di pos server (biar waktu masuk enggak minta password) <<<(hanya untuk POS yg jadi server kalo server PC enggak usah tahap yg ini)
+===================================================================================================================================================================
+  1.  Press the Windows key + R on your keyboard to launch the "Run" dialog box.
+  2.  Type in ( control userpasswords2 ) or ( netplwiz ) << pilih salah 1 aja
+  3.  Press Enter. The User Accounts window will display.
+  4.  "Uncheck" the option "Users must enter a user name and password to use this computer"  <<< hilangkan centangannya
+      Click "OK"
+  5. You will then be prompted to enter the current password and confirm it. <<< masukan password login server yg tadi
+  6. After doing so, you will no longer be prompted to enter your password upon login. 
+
+Use this tip at your own risk! 
+
+control userpasswords2  --------------- Buat xp
+netplwiz			------------- buat 7 dan 8
+
+====================================================================================================================================================================
+--buat autobackup ke pos order
+====================================================================================================================================================================
+--di POS order
+1. pastikan di pos order sudah ada sering folder yang sudah bisa ditulis dan dibaca.
+
+--di POS Server
+2. di pos server buka "SQLBackupAndFTP".
+3. buat "NEW" di "store beckup in local/network folder" ke arah sharing2an foldernya.
+contoh : \\Kasir2\xxxxx\autoBeckup
+4. waktu diatur pastikan pos target hidup dijam tersebut.
+5. klik "seve" akan ditanya password isi dengan user account server dan ok <<< masukan password login server yg tadi
+6. selesai
+
+--ingat pastikan tes dulu jalan baru tinggal
+-- kalo mau simpel semua pos di kasi user : xxxxx pass : xxxxx terus semuanya autologin =siip

@@ -1,0 +1,56 @@
+YANG WAJIB DI SETTING UNTUK PEMASANGAN BARU...!!!
+===================================================
+
+1. SETTING REGIONAL SETTING.
+
+Jika windows 7 atau yang lebih baru, Ganti UAC menjadi Never Notify
+	Control Panel >> Action Center >> Change User Account Control Setting >> Ganti menjadi Never Notify
+
+2. Windows Firewall off & autoupdate off
+
+3. ganti pasword "sa" sesuai nama pelangan
+	INGAT : simpan password di dropbox xxxxx
+
+4. Screen saver matikan, power options semuannya selalu on. "never all"
+
+5. SETTING AUTOBACKUP ke lebih dari 1 tempat
+ 	
+	a. untuk pelanggan dengan PC server
+	    pastikan server punya password, auto backup di arahkan ke sharing2an folder di pos yang lain
+	
+	B. untuk server di POS dan pos lebih dari 1
+		di profile simpan setingan di semua posnya
+			user : xxxxxx 	password  : xxxxxx
+
+	Tujuan : membuat autobackup dari pos server di simpan ke pos order atau pos yg lain. dan posorder bisa 
+		akses printer sharing2anya.
+	
+	c. Untuk 1 pos tapi terkoneksi dengan internet 
+	    instal dropbox dan backup di simpan di dropbox
+
+Note : baca file AutoBackup DB SQL.txt untuk detailnya!
+
+6. Bila pelangan ada koneksi internet ( Ini sangat penting apa bila ada kerusakan kita bisa remote saja ke lokasi)
+	Instal 
+		1. teamviewer (wajib) start tv with windows, incoming lan accept, password : xxxxxx
+		2. hamaci (wajib)
+		3. dropbox (optional, direkomendasikan)
+
+7. Jalankan file:  " start win7 no scanerror.bat "
+		atau buka RUN lalu paste " bcdedit /set {current} bootstatuspolicy ignoreallfailures "
+
+	Fungsinya : agar kalo pos mati karena lampu mati atau listrik. saat hidup dia tidak minta Repare windos
+		karena POS tidak punya keyboad jadi pelanggan tidak bisa masuk windows.
+
+8. Matikan action center
+	Control Panel >> Action Center >> Change Action Center Setting >> matikan semua checklist yang ada.
+	
+9. Hilangkan semua icon yang ada dalam start (selain all program), sisakan run, control panel dan "devices and printers"
+
+10. Hilangkan Notification Area Icon (icon yang ada di pojok kanan bawah)
+	Control Panel >> Notification Area Icon >> Turn System Icon on or off >> matikan semua, sisakan network
+
+11. Control Panel disabel
+	note : baca ! Disable Control Panel.txt detailnya
+
+12. password jangan sama persis. di beda2kan setiap pelangan. Semua saettingan di catat di dropbox...!!!!!!
