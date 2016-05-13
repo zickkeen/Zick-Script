@@ -13,6 +13,8 @@ Jika windows 7 atau yang lebih baru, Ganti UAC menjadi Never Notify
 
 4. Screen saver matikan, power options semuannya selalu on. "never all"
 
+4b. Buatkan account untuk client di google (untuk email), dropbox dan hamachi. simpan username dan password pada dropbox
+
 5. SETTING AUTOBACKUP ke lebih dari 1 tempat
  	
 	a. untuk pelanggan dengan PC server
@@ -36,8 +38,8 @@ Note : baca file AutoBackup DB SQL.txt untuk detailnya!
 		2. hamaci (wajib)
 		3. dropbox (optional, direkomendasikan)
 
-7. Jalankan file:  " start win7 no scanerror.bat "
-		atau buka RUN lalu paste " bcdedit /set {current} bootstatuspolicy ignoreallfailures "
+7. Jalankan file:  "start win7 no scanerror.bat "
+		atau buka RUN lalu paste "bcdedit /set {current} bootstatuspolicy ignoreallfailures "
 
 	Fungsinya : agar kalo pos mati karena lampu mati atau listrik. saat hidup dia tidak minta Repare windos
 		karena POS tidak punya keyboad jadi pelanggan tidak bisa masuk windows.
@@ -54,3 +56,12 @@ Note : baca file AutoBackup DB SQL.txt untuk detailnya!
 	note : baca ! Disable Control Panel.txt detailnya
 
 12. password jangan sama persis. di beda2kan setiap pelangan. Semua saettingan di catat di dropbox...!!!!!!
+
+13. Pastikan nama komputer diganti dengan nama client
+
+14. Untuk settingan printer:
+	1. Ethernet: pastikan port printer adalah 6000
+	2. Auto cutter: jika printer memiliki auto cutter, pastikan settingan pada recipt [auto cutter]
+	   jika tidak memiliki auto cutter, biarkan saja pada automatics
+	3. Untuk jenis font baca pada "font printer pos.txt"
+	
