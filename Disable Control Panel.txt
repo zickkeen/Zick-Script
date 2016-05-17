@@ -1,25 +1,32 @@
 DISABLE CONTROL PANEL
 ------------------------------------------
 
-1. In Registry Editor navigate to 
------HKEY_CURRENT_USER\
-	Software\
-		Microsoft\
-			Windows\
-				Current Version\
-					Policies\
-						Explorer. (lalu klik kanan)
-create a new = DWORD (32-bit) Value.
+1. Pada registery editor, buka registery ini:
+	HKEY_CURRENT_USER\Software\Microsoft\Windows\Current Version\Policies\Explorer
+	(lalu klik kanan) create a new = DWORD (32-bit) Value.
 
-2. ganti namanya dengan  " NoControlPanel ". lalu klik kanan pilih " Modify "
+2. Ganti namanya dengan  "NoControlPanel". lalu klik kanan pilih "Modify"
 
-3.  Value  di ganti “1” lalu click OK. 
+3. Value  di ganti "1" lalu click OK. keluar dari Registry Editor and restart explorer atau windows.
 
-keluar dari Registry Editor and restart POS.
+4. jika ingin mengembalikan Control Panel, kembali ke langkah yang di atas lalu NoControlPanel value ganti "0" dan restart explorer atau windows.
 
-4. jika ingin mengembalikan Control Panel, kembali ke langkah yang di atas lalu NoControlPanel value ganti “0” dan restart pos
+ATAU
 
+1. Buat file dengan extensi *.reg, (misal: disableCpanel.reg)
 
+2. Edit file tersebut dengan notepad
 
+3. Isi file tersebut dengan text di bawah ini:
 
-NoControlPanel
+================ start file ==============================
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\explorer]
+
+"NoControlPanel"=dword:00000001
+================ end file ================================
+
+4. Save file tersebut, dan jalankan dengan cara klik 2x. kemudian restart explorer atau windows.
+
+5. Untuk menonaktifkan, ganti "dword:00000001" menjadi "dword:00000000". Jalankan ulang lalu restart.
