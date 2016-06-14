@@ -30,7 +30,6 @@ YANG WAJIB DI SETTING UNTUK PEMASANGAN BARU...!!!
 	Fungsinya : agar kalo pos mati karena lampu mati atau listrik. saat hidup dia tidak minta Repare windos
 		karena POS tidak punya keyboad jadi pelanggan tidak bisa masuk windows.
 
-
 12. Buatkan account untuk client di google (untuk email), dropbox dan hamachi. simpan username dan password pada dropbox
 
 13. ganti pasword "sa" sesuai nama pelangan
