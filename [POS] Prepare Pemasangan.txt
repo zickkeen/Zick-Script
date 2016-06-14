@@ -1,21 +1,48 @@
 YANG WAJIB DI SETTING UNTUK PEMASANGAN BARU...!!!
 ===================================================
 
-1. SETTING REGIONAL SETTING.
+1. Pastikan nama komputer diganti dengan nama client
 
-Jika windows 7 atau yang lebih baru, Ganti UAC menjadi Never Notify
+2. SETTING REGIONAL SETTING.
+
+3. Jika windows 7 atau yang lebih baru, Ganti UAC menjadi Never Notify
 	Control Panel >> Action Center >> Change User Account Control Setting >> Ganti menjadi Never Notify
 
-2. Windows Firewall off & autoupdate off
+4. Windows Firewall off
 
-3. ganti pasword "sa" sesuai nama pelangan
+5. autoupdate off
+
+6. Screen saver matikan,
+
+7. power options semuannya selalu on. "never all" (Terutama hardisk)
+
+8. Matikan action center
+	Control Panel >> Action Center >> Change Action Center Setting >> matikan semua checklist yang ada.
+
+9. Hilangkan Notification Area Icon (icon yang ada di pojok kanan bawah)
+	Control Panel >> Notification Area Icon >> Turn System Icon on or off >> matikan semua, sisakan network
+
+10. Hilangkan semua icon yang ada dalam start (selain all program), sisakan run, control panel dan "devices and printers"
+
+11. Jalankan file:  "start win7 no scanerror.bat "
+	atau buka RUN lalu paste "bcdedit /set {current} bootstatuspolicy ignoreallfailures "
+
+	Fungsinya : agar kalo pos mati karena lampu mati atau listrik. saat hidup dia tidak minta Repare windos
+		karena POS tidak punya keyboad jadi pelanggan tidak bisa masuk windows.
+
+
+12. Buatkan account untuk client di google (untuk email), dropbox dan hamachi. simpan username dan password pada dropbox
+
+13. ganti pasword "sa" sesuai nama pelangan
 	INGAT : simpan password di dropbox xxxxx
+	
+14. Bila pelangan ada koneksi internet ( Ini sangat penting apa bila ada kerusakan kita bisa remote saja ke lokasi)
+	Instal 
+		1. teamviewer (wajib) start tv with windows, incoming lan accept, password : xxxxxx
+		2. hamaci (wajib)
+		3. dropbox (optional, direkomendasikan)
 
-4. Screen saver matikan, power options semuannya selalu on. "never all"
-
-4b. Buatkan account untuk client di google (untuk email), dropbox dan hamachi. simpan username dan password pada dropbox
-
-5. SETTING AUTOBACKUP ke lebih dari 1 tempat
+15. SETTING AUTOBACKUP ke lebih dari 1 tempat
  	
 	a. untuk pelanggan dengan PC server
 	    pastikan server punya password, auto backup di arahkan ke sharing2an folder di pos yang lain
@@ -32,36 +59,16 @@ Jika windows 7 atau yang lebih baru, Ganti UAC menjadi Never Notify
 
 Note : baca file AutoBackup DB SQL.txt untuk detailnya!
 
-6. Bila pelangan ada koneksi internet ( Ini sangat penting apa bila ada kerusakan kita bisa remote saja ke lokasi)
-	Instal 
-		1. teamviewer (wajib) start tv with windows, incoming lan accept, password : xxxxxx
-		2. hamaci (wajib)
-		3. dropbox (optional, direkomendasikan)
 
-7. Jalankan file:  "start win7 no scanerror.bat "
-		atau buka RUN lalu paste "bcdedit /set {current} bootstatuspolicy ignoreallfailures "
-
-	Fungsinya : agar kalo pos mati karena lampu mati atau listrik. saat hidup dia tidak minta Repare windos
-		karena POS tidak punya keyboad jadi pelanggan tidak bisa masuk windows.
-
-8. Matikan action center
-	Control Panel >> Action Center >> Change Action Center Setting >> matikan semua checklist yang ada.
-	
-9. Hilangkan semua icon yang ada dalam start (selain all program), sisakan run, control panel dan "devices and printers"
-
-10. Hilangkan Notification Area Icon (icon yang ada di pojok kanan bawah)
-	Control Panel >> Notification Area Icon >> Turn System Icon on or off >> matikan semua, sisakan network
-
-11. Control Panel disabel
+16. Control Panel disabel
 	note : baca ! Disable Control Panel.txt detailnya
 
-12. password jangan sama persis. di beda2kan setiap pelangan. Semua saettingan di catat di dropbox...!!!!!!
+17. password jangan sama persis. di beda2kan setiap pelanggan. Semua settingan di catat di dropbox...!!!!!!
 
-13. Pastikan nama komputer diganti dengan nama client
-
-14. Untuk settingan printer:
+18. Untuk settingan printer:
 	1. Ethernet: pastikan port printer adalah 6000
 	2. Auto cutter: jika printer memiliki auto cutter, pastikan settingan pada recipt [auto cutter]
 	   jika tidak memiliki auto cutter, biarkan saja pada automatics
 	3. Untuk jenis font baca pada "font printer pos.txt"
-	
+
+19. Jika POS Versi 7.8 atau lebih, jalankan CRM Register
