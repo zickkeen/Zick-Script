@@ -1,0 +1,80 @@
+@echo off
+title .: Raptor Config Creator By FATUR v1.3:.
+
+echo dan raptor_config secara otomatis dengan memasukkan parameter sesuai database.
+echo App ini diciptakan untuk mempermudah dalam membuat raptorconfig/raptordbpath
+echo Appini hanya menggenerate config standart saja, untuk custom silahkan ubah
+echo hasil generate dari aplikasi ini.
+echo.
+echo.
+echo Apakah anda setuju untuk menggunakan aplikasi ini?y/n
+set /p agreement=
+if %agreement%==y goto setuju
+exit
+
+:setuju
+cls
+echo inputkan Lokasi dbpath/config: (ex. C:\Program Files\RAPTOR POS FNB)
+set /p lokasi=
+if exist "%lokasi%\raptor_config.ini" del "%lokasi%\raptor_config.ini"
+if exist "%lokasi%\raptordbpath.cfg" del "%lokasi%\raptordbpath.cfg"
+echo.
+echo inputkan Folder POS: (ex. C:\Program Files\RAPTOR POS FNB)
+set /p PATH=
+
+:VERSI
+cls
+echo Apakah menggunakan raptor_config?y/n
+set /p vers=
+if %vers%==y goto LANJUT
+if %vers%==n goto LANJUT
+goto VERSI
+
+:LANJUT
+cls
+echo inputkan nama database: (ex. dbClientPos)
+set /p DATABASE=
+cls
+echo inputkan SQL Server Name: (ex. SERVERNAME\SQLExpress)
+set /p SQLSERVER=
+cls
+echo inputkan sa password: (ex. awizindo)
+set /p SQLPASS=
+echo inputkan db MCI: (ex. mci1)
+set /p MCI=
+
+if %vers%==y goto CONFIG
+goto DBPATH
+
+:CONFIG
+echo [RAPTOR] >> "%lokasi%\raptor_config.ini"
+echo. >> "%lokasi%\raptor_config.ini"
+echo [POS] >> "%lokasi%\raptor_config.ini"
+echo Sales =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo MyCompInfo = %MCI%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Member =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Inventory = hrsstock@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Voucher =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Training = Training@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo RoomCharge =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Audit = 0@Auditraptor@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Report =%DATABASE%@%SQLSERVER% >> "%lokasi%\raptor_config.ini"
+echo Graphics = %PATH%\Graphics >> "%lokasi%\raptor_config.ini"
+echo POSReports = %PATH%\POSReport\ >> "%lokasi%\raptor_config.ini"
+echo Delete = 0 >> "%lokasi%\raptor_config.ini"
+echo Path = D:\Test\ >> "%lokasi%\raptor_config.ini"
+
+:DBPATH
+echo Sales@%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo MyCompInfo@%MCI%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo SalesTraining@training@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo graphics=%PATH%\Graphics >> "%lokasi%\raptordbpath.cfg"
+echo Report@%DATABASE%@%SQLSERVER% >> "%lokasi%\raptordbpath.cfg"
+echo Path@D:\Test\ >> "%lokasi%\raptordbpath.cfg"
+echo Delete@0 >> "%lokasi%\raptordbpath.cfg"
+echo inventory@hrsstock@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo member@%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo Audit=0@audit%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo POSReport=%PATH%\POSReport\ >> "%lokasi%\raptordbpath.cfg"
+
+pause
