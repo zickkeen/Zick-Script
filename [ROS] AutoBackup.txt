@@ -1,12 +1,12 @@
 # Dynamic DNS Update / Simple Edition
-:global warnetname "SemeruNet"
-:global filename "zennet"
-:global email "jackkinny@gmail.com"
+:local warnetname "SemeruNet"
+:local filename "zennet"
+:local email "jackkinny@gmail.com"
 
 /system backup save name="$filename";
 :delay 3s;
 :log info "backup didapat: $filename";
-/tool e-mail send to="$email" subject="Backup Mikrotik $warnetname" body="Backup mikrotik $filename" tls=yes file="$filename.backup";
+/tool e-mail send to="$email" subject="Backup Mikrotik $warnetname" body="Backup mikrotik $filename" start-tls=yes file="$filename.backup";
 :log info "Backup dikirim ke email $email";
 :delay 20s;
 /file remove "$filename.backup";
