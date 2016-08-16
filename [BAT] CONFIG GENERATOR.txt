@@ -1,10 +1,12 @@
 @echo off
-title .: Raptor Config Creator By FATUR v1.3:.
+set vers=1.4
+title .: Raptor Config Creator By FATUR v%vers% :.
+color 9F
 
-echo Raptor Config Creator V 1.3 adalah aplikasi untuk menggenerate Raptordbpath
+echo Raptor Config Creator V %vers% adalah aplikasi untuk menggenerate Raptordbpath
 echo dan raptor_config secara otomatis dengan memasukkan parameter sesuai database.
 echo App ini diciptakan untuk mempermudah dalam membuat raptorconfig/raptordbpath
-echo Appini hanya menggenerate config standart saja, untuk custom silahkan ubah
+echo App ini hanya menggenerate config standart saja, untuk custom silahkan ubah
 echo hasil generate dari aplikasi ini.
 echo.
 echo.
@@ -39,8 +41,11 @@ cls
 echo inputkan SQL Server Name: (ex. SERVERNAME\SQLExpress)
 set /p SQLSERVER=
 cls
+echo inputkan user SQL: (ex. sa)
+set /p SQLUSER=
 echo inputkan sa password: (ex. awizindo)
 set /p SQLPASS=
+cls
 echo inputkan db MCI: (ex. mci1)
 set /p MCI=
 
@@ -51,31 +56,40 @@ goto DBPATH
 echo [RAPTOR] >> "%lokasi%\raptor_config.ini"
 echo. >> "%lokasi%\raptor_config.ini"
 echo [POS] >> "%lokasi%\raptor_config.ini"
-echo Sales =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo MyCompInfo = %MCI%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo Member =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo Inventory = hrsstock@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo Voucher =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo Training = Training@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo RoomCharge =%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
-echo Audit = 0@Auditraptor@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Sales =%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo MyCompInfo = %MCI%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Member =%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Inventory = hrsstock@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Voucher =%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Training = Training@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo RoomCharge =%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
+echo Audit = 0@Auditraptor@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptor_config.ini"
 echo Report =%DATABASE%@%SQLSERVER% >> "%lokasi%\raptor_config.ini"
 echo Graphics = %PATH%\Graphics >> "%lokasi%\raptor_config.ini"
 echo POSReports = %PATH%\POSReport\ >> "%lokasi%\raptor_config.ini"
 echo Delete = 0 >> "%lokasi%\raptor_config.ini"
-echo Path = D:\Test\ >> "%lokasi%\raptor_config.ini"
+echo Path = %PATH%\ >> "%lokasi%\raptor_config.ini"
 
 :DBPATH
-echo Sales@%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
-echo MyCompInfo@%MCI%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
-echo SalesTraining@training@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo Sales@%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo MyCompInfo@%MCI%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo SalesTraining@training@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
 echo graphics=%PATH%\Graphics >> "%lokasi%\raptordbpath.cfg"
 echo Report@%DATABASE%@%SQLSERVER% >> "%lokasi%\raptordbpath.cfg"
-echo Path@D:\Test\ >> "%lokasi%\raptordbpath.cfg"
+echo Path@D:%PATH%\ >> "%lokasi%\raptordbpath.cfg"
 echo Delete@0 >> "%lokasi%\raptordbpath.cfg"
-echo inventory@hrsstock@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
-echo member@%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
-echo Audit=0@audit%DATABASE%@%SQLSERVER%;UID=sa;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo inventory@hrsstock@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo member@%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
+echo Audit=0@audit%DATABASE%@%SQLSERVER%;UID=%SQLUSER%;pwd=%SQLPASS% >> "%lokasi%\raptordbpath.cfg"
 echo POSReport=%PATH%\POSReport\ >> "%lokasi%\raptordbpath.cfg"
 
 pause
+
+rem Log Version
+rem V1.3
+rem - versi sebelum log version digunakan
+rem V1.4
+rem - Penambahan Log Version
+rem - Penambahan version title
+rem - Penambahan background color
+rem - Penambahan parameter sql user
