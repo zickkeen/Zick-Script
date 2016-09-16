@@ -103,6 +103,8 @@ if exist %usbdr%:\zickprotector\nul rmdir /s /q \\.\\%usbdr%:\zickprotector
 if exist %usbdr%:\zickprotector del /f /q /a %usbdr%:\zickprotector
 echo Zickkeen Protector v%vers%> %usbdr%:\zickprotector
 attrib %usbdr%:\zickprotector +r +s +h
+echo Zick Protector berhasil menonaktifkan proteksi pada flashdrive anda.
+pause
 goto x
 
 :r
@@ -124,6 +126,8 @@ echo Folder %usbdr%:\"Copy of Shortcut to (3)".lnk berhasil dihapus
 rmdir /s /q \\.\\%usbdr%:\"Copy of Shortcut to (4)".lnk
 echo Folder %usbdr%:\"Copy of Shortcut to (4)".lnk berhasil dihapus
 del /f /q /a %usbdr%:\zickprotector
+echo Proteksi Zick Protector telah berhasil dinonaktifkan pada flashdrive anda.
+pause
 goto x
 
 :errz
@@ -151,6 +155,11 @@ if "%ask%"=="Y" goto proses
 EXIT
 
 :x
+cls
+echo Apakah anda ingin kembali ke menu awal?
+set /p tna=Pilih y/n :
+if "%tna%"=="y" goto proses
+if "%tna%"=="Y" goto proses
 set usbdr=
 echo.
 echo Terimakasih telah menggunakan zick protector...!!!
@@ -167,10 +176,13 @@ rem - Penambahan protector Autorun.inf >> nul.ZickProtector
 rem   untuk mencegah penghapusan folder
 rem v2.0
 rem - Penambahan file Recycler, Recycled dan $Recycle.Bin
-rem - Penambahan folder Copy of Shortcut to (1).lnk hingga (4)
+rem - Penambahan folder Copy of "Shortcut to (1).lnk" sampai "Shortcut to (4).lnk"
 rem - penyempurnaan script lama
 rem v.2.1
 rem - Penambahan file zickprotector untuk mengetahui apakah sudah ada instalasi sebelumnya
 rem - Penyempurnaan versi sebelumnya
 rem - Penambahan kode versi
 rem - penambahan log version
+rem v.2.2
+rem - Penambahan pilihan kembali ke menu awal pada akhir sesi
+rem - Penambahan info bahwa aktivasi dan deaktivasi berhasil
