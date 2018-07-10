@@ -1,7 +1,7 @@
 # Dynamic DNS Update / Simple Edition
-:private ddnscode "MTkyNDQzMjo5NjUxNDkwOTpiMmU4ZWNjODhhNDNkMWZhYjZkNDBmZWI1MjZhOTljMTY3YjBiOTA0NmEyNDhjODczYWFmNTk4NjQ5NDMzMjE0"
-:private resolvedIP [:resolve $ddnshost]
-:private ddnsipnow
+:local ddnscode "MTkyNDQzMjo5NjUxNDkwOTpiMmU4ZWNjODhhNDNkMWZhYjZkNDBmZWI1MjZhOTljMTY3YjBiOTA0NmEyNDhjODczYWFmNTk4NjQ5NDMzMjE0"
+:local resolvedIP [:resolve $ddnshost]
+:local ddnsipnow
 :global ddnsiplama
 
 /tool fetch url="http://myip.dnsomatic.com/" mode=http dst-path=ipaddress.txt
