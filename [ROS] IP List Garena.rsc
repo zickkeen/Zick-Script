@@ -1,24 +1,24 @@
-add list=garena add=43.252.184.0/24
-add list=garena add=43.252.185.0/24
-add list=garena add=43.252.186.0/24
-add list=garena add=43.252.187.0/24
-add list=garena add=103.248.56.0/24
-add list=garena add=103.248.57.0/24
-add list=garena add=103.248.58.0/24
-add list=garena add=103.248.59.0/24
-add list=garena add=202.73.16.0/24
-add list=garena add=202.73.17.0/24
-add list=garena add=202.73.18.0/24
-add list=garena add=202.73.19.0/24
-add list=garena add=202.73.20.0/24
-add list=garena add=202.73.21.0/24
-add list=garena add=202.73.22.0/24
-add list=garena add=202.73.23.0/24
-add list=garena add=203.117.155.0/24
-add list=garena add=203.117.172.0/24
-add list=garena add=203.117.148.0/25
-add list=garena add=203.117.135.32/27
-add list=garena add=203.117.124.0/25
-add list=garena add=180.87.182.32/29
-add list=garena add=122.152.140.0/27
-add list=garena add=58.185.135.120/29
+#AS58521
+add list="GArena" address="103.247.204.0/22" comment="GARENA-SG"
+add list="GArena" address="202.81.96.0/22" comment="GARENA-SG"
+add list="GArena" address="202.81.100.0/22" comment="GARENA-SG"
+add list="GArena" address="202.81.104.0/23" comment="GARENA-SG"
+add list="GArena" address="202.81.108.0/22" comment="GARENA-SG"
+add list="GArena" address="202.81.112.0/22" comment="GARENA-SG"
+add list="GArena" address="202.81.116.0/23" comment="GARENA-SG"
+add list="GArena" address="202.81.118.0/24" comment="GARENA-SG"
+add list="GArena" address="202.81.119.0/24" comment="GARENA-SG"
+add list="GArena" address="202.81.120.0/22" comment="GARENA-SG"
+add list="GArena" address="202.81.124.0/24" comment="GARENA-SG"
+add list="GArena" address="202.181.65.0/24" comment="GARENA-SG"
+add list="GArena" address="202.181.67.0/24" comment="GARENA-SG"
+add list="GArena" address="202.181.69.0/24" comment="GARENA-SG"
+add list="GArena" address="202.181.70.0/24" comment="GARENA-SG"
+add list="GArena" address="202.181.72.0/22" comment="GARENA-SG"
+add list="GArena" address="202.181.76.0/22" comment="GARENA-SG"
+add list="GArena" address="143.92.124.0/22" comment="GARENA-SG "
+
+#AS58816
+add list="GArena" address="124.158.134.0/23" comment="IDNIC-GARENA-ID"
+add list="GArena" address="124.158.142.0/23" comment="IDNIC-GARENA-ID"
+add list="GArena" address="202.181.80.0/21" comment="IDNIC-GARENA-ID"
