@@ -1,7 +1,7 @@
 # Dynamic DNS Update / Simple Edition
-:local ddnsuser "zickkeen"
-:local ddnspass "tuTHstMwhgu4Q5R"
-:local ddnshost "man1ta.ddns.us"
+:local ddnsuser "changeip-user"
+:local ddnspass "chageip-pass"
+:local ddnshost "changeip-host"
 
 :global ipBaru
 :global ipSebelumnya
