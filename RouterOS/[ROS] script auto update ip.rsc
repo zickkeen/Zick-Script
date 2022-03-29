@@ -1,25 +1,40 @@
-# Dynamic DNS Update / Simple Edition
-:local ddnsuser "changeip-user"
-:local ddnspass "chageip-pass"
-:local ddnshost "changeip-host"
+# mar/23/2022 10:08:21 by RouterOS 6.43.2
+# model = CCR1009-7G-1C-1S+
+/system script
+add dont-require-permissions=no name=updateip owner=mustofa policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="#\
+    \_Dynamic DNS Update / Simple Edition\r\
+    \n:local ddnsuser \"user-changeip.com\"\r\
+    \n:local ddnspass \"pass-changeip.com\"\r\
+    \n:local ddnshost \"host-changeip.com\"\r\
+    \n\r\
+    \n:global ddnsip\r\
+    \n:local resolvedIP [:resolve \$ddnshost]\r\
+    \n\r\
+    \n/tool fetch url=\"https://myip.dnsomatic.com/\" mode=https dst-path=ipad\
+    dress.txt\r\
+    \n\r\
+    \n:set ddnsip [/file get [/file find name=ipaddress.txt] contents]\r\
+    \n\r\
+    \n:log info \"set ddnsip: \$ddnsip\"\r\
+    \n\r\
+    \n:if ([ :typeof \$ddnsip ] = \"nothing\" ) do={\r\
+    \n\t:log info (\"DDNS: tidak ada ip yang terset pada ddnsip \$ddnsip, sila\
+    hkan cek kembali\")\r\
+    \n} else={\r\
+    \n  :if (\$ddnsip != \$resolvedIP) do={\r\
+    \n    :log info \"DDNS: mengirimkan update ip \$ddnsip ke changeip.com!\"\
+    \r\
+    \n    :log info [ :put [/tool dns-update name=\$ddnshost address=\$ddnsip \
+    key-name=\$ddnsuser key=\$ddnspass ] ]\r\
+    \n  } else={ \r\
+    \n    :log info \"DDNS: ip saat ini \$ddnsip sama dengan ip sebelumnya \$r\
+    esolvedIP\"\r\
+    \n  }\r\
+    \n}"
 
-:global ipBaru
-:global ipSebelumnya
-
-/tool fetch url="https://myip.dnsomatic.com/" mode=https dst-path=ipaddress.txt
-
-:set ipBaru [/file get [/file find name=ipaddress.txt] contents]
-
-:log info "set ipBaru: $ipBaru"
-
-:if ([ :typeof $ipBaru ] = "nothing" ) do={
-	:log info ("DDNS: tidak ada ip yang terset pada ipBaru $ipBaru, silahkan cek kembali")
-} else={
-  :if ($ipBaru != $ipSebelumnya) do={
-    :log info "DDNS: mengirimkan update ip $ipBaru ke changeip.com!"
-    :log info [ :put [/tool dns-update name=$ddnshost address=$ipBaru key-name=$ddnsuser key=$ddnspass ] ]
-	:set ipSebelumnya $ipBaru
-  } else={ 
-    :log info "DDNS: ip saat ini $ipBaru sama dengan ip sebelumnya $ipSebelumnya"
-  }
-}
+/system scheduler
+add interval=5m name=changeipDNS on-event="/system script run updateip\r\
+    \n" policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+    start-time=startup
