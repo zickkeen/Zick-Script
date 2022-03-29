@@ -1,4 +1,10 @@
-#catatan gunakan password khusus app: https://myaccount.google.com/apppasswords
+#Jalankan command di bawah melalui terminal
+/tool email set address=smtp.google.com from=smtpuser@gmail.com password=smtppass \
+	port=587 start-tls=yes user=smtpuser@gmail.com
+
+
+#Gunakan Script dibawah ini sebagai script mikrotik dan jalankan dengan scheduler
+#CATATAN: gunakan password khusus app: https://myaccount.google.com/apppasswords
 :local smtpserver "smtp.google.com"
 :local smtpuser "smtpuser@gmail.com"
 :local smtppass "smtppass"
